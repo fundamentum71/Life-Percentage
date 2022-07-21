@@ -1,0 +1,65 @@
+@import './base/variables';
+* {
+	box-sizing: border-box;
+}
+.live {
+	&__wrapper {
+		width: 1000px;
+		margin: 50px auto;
+		display: flex;
+		//width: 500px;
+		justify-content: space-around;
+		align-items: center;
+	}
+	&__res {
+		width: 450px;
+		height: 200px;
+		background-color: $ez-color;
+		font-size: 50px;
+		text-align: center;
+
+		border-radius: 10px;
+		line-height: 70px;
+	}
+	&__form {
+		max-width: 440px;
+		//margin: 50px auto;
+		padding: 50px;
+		background-color: $ez-color;
+		border-radius: 10px;
+		input {
+			display: block;
+			width: 250px;
+			height: 40px;
+			border: solid 2px $main-color;
+			border-radius: 10px;
+			margin: 0 auto 20px auto;
+			font-size: 20px;
+			color: $hard-color;
+		}
+		label {
+			display: block;
+			font-size: 25px;
+			text-align: center;
+			color: $hard-color;
+			margin: 0 auto 5px auto;
+		}
+		button {
+			display: block;
+			width: 150px;
+			height: 40px;
+			margin: 0 auto;
+			background-color: $main-color;
+			border: none;
+			color: $ez-color;
+			border-radius: 10px;
+			font-size: 20px;
+			&:hover {
+				background-color: $hard-color;
+			}
+			&:active {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
