@@ -7,7 +7,6 @@
 		width: 1000px;
 		margin: 50px auto;
 		display: flex;
-		//width: 500px;
 		justify-content: space-around;
 		align-items: center;
 	}
@@ -15,7 +14,7 @@
 		width: 450px;
 		height: 200px;
 		background-color: $ez-color;
-		font-size: 50px;
+		font-size: 20px;
 		text-align: center;
 
 		border-radius: 10px;
@@ -23,7 +22,6 @@
 	}
 	&__form {
 		max-width: 440px;
-		//margin: 50px auto;
 		padding: 50px;
 		background-color: $ez-color;
 		border-radius: 10px;
