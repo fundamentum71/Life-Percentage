@@ -7,9 +7,8 @@ let yearsToHours = 0,
 	sumHourse;
 
 const resultHelper = document.querySelector('.helper__result-allHouse span'),
-	resultHouseInput = document.querySelector('#house');
-
-const resultYearsToHours = document.querySelector('.helper__yearsToHours'),
+	resultHouseInput = document.querySelector('#house'),
+	resultYearsToHours = document.querySelector('.helper__yearsToHours'),
 	resultMonthsToHours = document.querySelector('.helper__monthsToHours'),
 	resultWeeksToHours = document.querySelector('.helper__weeksToHours'),
 	resultDaysToHours = document.querySelector('.helper__daysToHours');
@@ -41,6 +40,7 @@ function getDynamicInformationHelper(selector) {
 				yearsToHours = funcYearsToHours(res);
 				resultYearsToHours.textContent = `Это ${yearsToHours} часов`;
 				break;
+
 			case 'monthsToHours':
 				res = +input.value;
 				monthsToHours = funcMonthsToHours(res);
@@ -91,7 +91,16 @@ const mainFunction = () => {
 		result.textContent = `Заполните все данные...`;
 		return;
 	}
+	if (age < 0) {
+		result.textContent = `Вы ввели дату, которая еще не настала`;
+		return;
+	}
+
 	house = +valueHouse.value;
+	if (house < 0) {
+		result.textContent = `Вы ввели отрицательное кол-во часов`;
+		return;
+	}
 	console.log(house);
 	const persent = ((100 / +age) * +house).toFixed(4);
 
@@ -104,12 +113,6 @@ function getDynamicInformation(selector) {
 	const input = document.querySelector(selector);
 
 	input.addEventListener('input', () => {
-		//if (input.value.match(/\D/g)) {
-		//	input.style.border = '3px solid red';
-		//} else {
-		//	input.style.border = 'none';
-		//}
-
 		switch (input.getAttribute('id')) {
 			case 'title':
 				title = input.value;
@@ -124,7 +127,9 @@ function getDynamicInformation(selector) {
 			case 'age':
 				ageVal = input.value;
 				const t = Date.parse(new Date()) - Date.parse(ageVal);
+
 				age = msInHouse(t);
+
 				break;
 		}
 		mainFunction();

@@ -2,16 +2,15 @@
 * {
 	box-sizing: border-box;
 }
-body {
-	//background-color: $main-color;
-}
+
 .live {
 	&__wrapper {
-		width: 1000px;
+		max-width: 1000px;
 		margin: 0px auto;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 	&__res {
 		width: 450px;
@@ -19,14 +18,15 @@ body {
 		background-color: $ez-color;
 		font-size: 20px;
 		text-align: center;
-
 		border-radius: 10px;
-		line-height: 70px;
+		span {
+			display: block;
+			margin: 30px;
+		}
 	}
 	&__form {
 		max-width: 440px;
 		padding: 30px;
-		//background-color: $ez-color;
 		border-radius: 10px;
 		input {
 			display: block;
@@ -114,6 +114,7 @@ body {
 		padding: 15px;
 		font-size: 20px;
 		color: $main-color;
+		border: solid 2px $main-color;
 	}
 	&__item {
 		background-color: $ez-color;
@@ -122,4 +123,7 @@ body {
 		padding: 15px;
 		border-radius: 10px;
 	}
+}
+::placeholder {
+	color: $main-color;
 }
