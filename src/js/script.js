@@ -84,7 +84,10 @@ const form = document.querySelector('#form_for_live'),
 	result = document.querySelector('.result'),
 	valueHouse = document.querySelector('#house');
 
-let title, house, age, persentVal;
+let title = 'title',
+	house,
+	age,
+	persentVal;
 
 const mainFunction = () => {
 	if (!title || !age || isNaN(age)) {
@@ -100,10 +103,16 @@ const mainFunction = () => {
 		result.textContent = `Вы ввели отрицательное кол-во часов`;
 		return;
 	}
-	console.log(house);
+	//console.log(house);
 	const persent = ((100 / +age) * +house).toFixed(4);
 	persentVal = persent;
-	//funDiagr(persent);
+
+	if (persent > 100) {
+		result.textContent = `Кол-во часов, которое вы ввели, превышает кол-во часов, которое вы прожили`;
+		return;
+	}
+
+	funDiagr(persentVal, title);
 	return (result.textContent = `Ты потратил(ла) на ${title}: ${persent}% своей жизни!`);
 };
 
@@ -148,16 +157,29 @@ const msInHouse = (value) => {
 
 //****DIAGRAMMA */
 
-const funDiagr = (persentVal) => {
+const funDiagr = (persentVal, nameVal) => {
+	const placeChart = document.querySelector('.chart');
+
+	placeChart.innerHTML = `
+	<canvas
+						class="myChart"
+						id="myChart"
+						width="100px"
+						height="100px"
+					></canvas>
+	
+	`;
+
 	const ctx = document.getElementById('myChart').getContext('2d');
+
 	const myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
-			labels: ['Жизнь', 'Потратил'],
+			labels: ['Жизнь', `${nameVal}`],
 			datasets: [
 				{
 					label: 'My First Dataset',
-					data: [100, persentVal],
+					data: [100 - persentVal, persentVal],
 					backgroundColor: ['#896b73', '#e5dbdc'],
 					hoverOffset: 4,
 				},
@@ -165,6 +187,10 @@ const funDiagr = (persentVal) => {
 			option: {},
 		},
 	});
+
+	return myChart;
 };
 
-funDiagr(persentVal);
+funDiagr(persentVal, title);
+
+console.dir(myChart);
