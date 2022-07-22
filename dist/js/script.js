@@ -155,7 +155,7 @@ const msInHouse = (value) => {
 	return pureHouse;
 };
 
-//****DIAGRAMMA */
+//****chart/
 
 const funDiagr = (persentVal, nameVal) => {
 	const placeChart = document.querySelector('.chart');
