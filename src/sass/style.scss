@@ -8,7 +8,7 @@ body {
 .live {
 	&__wrapper {
 		width: 1000px;
-		margin: 50px auto;
+		margin: 0px auto;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
@@ -25,8 +25,8 @@ body {
 	}
 	&__form {
 		max-width: 440px;
-		padding: 50px;
-		background-color: $ez-color;
+		padding: 30px;
+		//background-color: $ez-color;
 		border-radius: 10px;
 		input {
 			display: block;
@@ -82,7 +82,7 @@ body {
 	&__wrapper {
 		max-width: 100%;
 		margin: 0 auto;
-		padding: 20px;
+		padding: 10px;
 		background-color: $main-color;
 		border-radius: 10px;
 	}
@@ -92,7 +92,7 @@ body {
 		flex-wrap: wrap;
 		max-width: 100%;
 		margin: 0 auto;
-		padding: 20px;
+		padding: 10px;
 		background-color: $main-color;
 		border-radius: 10px;
 		font-size: 20px;
@@ -108,6 +108,8 @@ body {
 		width: 100%;
 		height: 30px;
 		border-radius: 10px;
+		padding: 15px;
+		font-size: 20px;
 	}
 	&__item {
 		background-color: $ez-color;
