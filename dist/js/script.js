@@ -1,6 +1,10 @@
 //****HELPER */
 
-let yearsToHours, monthsToHours, weeksToHours, daysToHours, sumHourse;
+let yearsToHours = 0,
+	monthsToHours = 0,
+	weeksToHours = 0,
+	daysToHours = 0,
+	sumHourse;
 
 const resultHelper = document.querySelector('.helper__result-allHouse span'),
 	resultHouseInput = document.querySelector('#house');
@@ -11,15 +15,18 @@ const resultYearsToHours = document.querySelector('.helper__yearsToHours'),
 	resultDaysToHours = document.querySelector('.helper__daysToHours');
 
 const funcHelper = () => {
-	if (!yearsToHours || !monthsToHours || !weeksToHours || !daysToHours) {
-		resultHelper.textContent = `Заполните все данные...`;
-		return;
+	if (
+		yearsToHours >= 0 ||
+		monthsToHours >= 0 ||
+		weeksToHours >= 0 ||
+		daysToHours >= 0
+	) {
+		sumHourse = yearsToHours + monthsToHours + weeksToHours + daysToHours;
+		resultHouseInput.value = sumHourse;
+		getDynamicInformation('#house');
+
+		return (resultHelper.textContent = `В сумме: ${sumHourse} часов`);
 	}
-
-	sumHourse = yearsToHours + monthsToHours + weeksToHours + daysToHours;
-	resultHouseInput.value = sumHourse;
-
-	return (resultHelper.textContent = `Это в сумме: ${sumHourse} часов`);
 };
 
 funcHelper();
@@ -78,12 +85,13 @@ const form = document.querySelector('#form_for_live'),
 let title, house, age;
 
 const mainFunction = () => {
-	if (!title || !house || !age || isNaN(age)) {
+	if (!title || !age || isNaN(age)) {
 		result.textContent = `Заполните все данные...`;
 		return;
 	}
-
+	console.log(house);
 	const persent = ((100 / +age) * +house).toFixed(4);
+
 	return (result.textContent = `Ты потратил(ла) на ${title}: ${persent}% своей жизни!`);
 };
 
@@ -104,8 +112,8 @@ function getDynamicInformation(selector) {
 				title = input.value;
 				break;
 			case 'house':
-				if (sumHourse) {
-					house = sumHourse;
+				if (!input.value) {
+					house = +sumHourse;
 					break;
 				}
 				house = +input.value;
