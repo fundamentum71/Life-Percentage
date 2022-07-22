@@ -103,7 +103,6 @@ const mainFunction = () => {
 		result.textContent = `Вы ввели отрицательное кол-во часов`;
 		return;
 	}
-	//console.log(house);
 	const persent = ((100 / +age) * +house).toFixed(4);
 	persentVal = persent;
 
@@ -115,8 +114,6 @@ const mainFunction = () => {
 	funDiagr(persentVal, title);
 	return (result.textContent = `Ты потратил(ла) на ${title}: ${persent}% своей жизни!`);
 };
-
-console.log(persentVal);
 
 mainFunction();
 
@@ -192,5 +189,3 @@ const funDiagr = (persentVal, nameVal) => {
 };
 
 funDiagr(persentVal, title);
-
-console.dir(myChart);
