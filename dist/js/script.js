@@ -54,10 +54,11 @@ function getDynamicInformationHelper(selector) {
 			case 'daysToHours':
 				res = +input.value;
 				daysToHours = funcDaysToHours(res);
-				resultDaysToHours.textContent = `Это ${daysToHours} часов`;
+				resultDaysToHours.textContent = `Это ${daysToHours} часа`;
 				break;
 		}
 		funcHelper();
+		mainFunction();
 	});
 }
 getDynamicInformationHelper('#yearsToHours');
@@ -80,7 +81,8 @@ const funcDaysToHours = (value) => {
 
 //live calc
 const form = document.querySelector('#form_for_live'),
-	result = document.querySelector('.result');
+	result = document.querySelector('.result'),
+	valueHouse = document.querySelector('#house');
 
 let title, house, age;
 
@@ -89,6 +91,7 @@ const mainFunction = () => {
 		result.textContent = `Заполните все данные...`;
 		return;
 	}
+	house = +valueHouse.value;
 	console.log(house);
 	const persent = ((100 / +age) * +house).toFixed(4);
 
