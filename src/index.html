@@ -11,9 +11,41 @@
 		<link rel="stylesheet" href="css/style.min.css" />
 	</head>
 	<body>
-		<div class="live">
+		<section class="helper">
+			<div class="helper__wrapper">
+				<h2>Калькулятор помощник</h2>
+				<div class="helper__wrapper2">
+					<div class="helper__item">
+						<label for="yearsToHours">Полные годы в часы</label>
+						<input id="yearsToHours" type="number" />
+						<div class="helper__result helper__yearsToHours">___часов</div>
+					</div>
+
+					<div class="helper__item">
+						<label for="monthsToHours">Полные месяцы в часы</label>
+						<input id="monthsToHours" type="number" />
+						<div class="helper__result helper__monthsToHours">___часов</div>
+					</div>
+
+					<div class="helper__item">
+						<label for="weeksToHours">Полные недели в часы</label>
+						<input id="weeksToHours" type="number" />
+						<div class="helper__result helper__weeksToHours">___часов</div>
+					</div>
+
+					<div class="helper__item">
+						<label for="daysToHours">Полные дни в часы</label>
+						<input id="daysToHours" type="number" />
+						<div class="helper__result helper__daysToHours">___часов</div>
+					</div>
+				</div>
+			</div>
+			<div class="helper__result helper__result-allHouse">
+				Колличество получившихся часов: <span>result</span>
+			</div>
+		</section>
+		<section class="live">
 			<div class="live__wrapper">
-				<!--<h1>Какой процент жизни ты потратил на ЭТО?</h1>-->
 				<div class="live__form" action="#" id="form_for_live">
 					<label for="title">На ЧТО ты потратил(ла) свою жизнь?</label>
 					<input id="title" type="text" placeholder="Введите название" />
@@ -25,11 +57,10 @@
 					<input id="age" type="date" />
 				</div>
 				<div class="live__res">
-					<!--<span>ответ:</span> </br>-->
-					<span class="result">123</span>
+					<span class="result"></span>
 				</div>
 			</div>
-		</div>
+		</section>
 
 		<script src="./js/script.js"></script>
 	</body>

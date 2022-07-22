@@ -2,6 +2,9 @@
 * {
 	box-sizing: border-box;
 }
+body {
+	//background-color: $main-color;
+}
 .live {
 	&__wrapper {
 		width: 1000px;
@@ -59,5 +62,58 @@
 				transform: scale(1.05);
 			}
 		}
+	}
+}
+
+.helper {
+	h2 {
+		text-align: center;
+		color: $ez-color;
+		margin: 0 0 0 0;
+	}
+	&__result {
+		font-size: 20px;
+		color: $hard-color;
+	}
+	&__result-allHouse {
+		margin: 30px;
+		font-size: 27px;
+	}
+	&__wrapper {
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 20px;
+		background-color: $main-color;
+		border-radius: 10px;
+	}
+	&__wrapper2 {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 20px;
+		background-color: $main-color;
+		border-radius: 10px;
+		font-size: 20px;
+	}
+	label {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+		color: $main-color;
+	}
+	input {
+		display: block;
+		width: 100%;
+		height: 30px;
+		border-radius: 10px;
+	}
+	&__item {
+		background-color: $ez-color;
+		width: 320px;
+		margin: 15px;
+		padding: 15px;
+		border-radius: 10px;
 	}
 }
