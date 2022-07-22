@@ -84,7 +84,7 @@ const form = document.querySelector('#form_for_live'),
 	result = document.querySelector('.result'),
 	valueHouse = document.querySelector('#house');
 
-let title, house, age;
+let title, house, age, persentVal;
 
 const mainFunction = () => {
 	if (!title || !age || isNaN(age)) {
@@ -95,7 +95,6 @@ const mainFunction = () => {
 		result.textContent = `Вы ввели дату, которая еще не настала`;
 		return;
 	}
-
 	house = +valueHouse.value;
 	if (house < 0) {
 		result.textContent = `Вы ввели отрицательное кол-во часов`;
@@ -103,9 +102,12 @@ const mainFunction = () => {
 	}
 	console.log(house);
 	const persent = ((100 / +age) * +house).toFixed(4);
-
+	persentVal = persent;
+	//funDiagr(persent);
 	return (result.textContent = `Ты потратил(ла) на ${title}: ${persent}% своей жизни!`);
 };
+
+console.log(persentVal);
 
 mainFunction();
 
@@ -143,3 +145,26 @@ const msInHouse = (value) => {
 	const pureHouse = Math.floor(value / (1000 * 60 * 60));
 	return pureHouse;
 };
+
+//****DIAGRAMMA */
+
+const funDiagr = (persentVal) => {
+	const ctx = document.getElementById('myChart').getContext('2d');
+	const myChart = new Chart(ctx, {
+		type: 'pie',
+		data: {
+			labels: ['Жизнь', 'Потратил'],
+			datasets: [
+				{
+					label: 'My First Dataset',
+					data: [100, persentVal],
+					backgroundColor: ['#896b73', '#e5dbdc'],
+					hoverOffset: 4,
+				},
+			],
+			option: {},
+		},
+	});
+};
+
+funDiagr(persentVal);
