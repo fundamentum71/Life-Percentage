@@ -163,16 +163,21 @@ const funDiagr = (persentVal, nameVal) => {
 						id="myChart"
 						width="100px"
 						height="100px"
+						
 					></canvas>
 	
 	`;
 
 	const ctx = document.getElementById('myChart').getContext('2d');
 
+	Chart.defaults.color = '#e5dbdc';
+	Chart.defaults.font.size = 17;
+
 	const myChart = new Chart(ctx, {
 		type: 'pie',
 		data: {
 			labels: ['Жизнь', `${nameVal}`],
+
 			datasets: [
 				{
 					label: 'My First Dataset',
@@ -188,4 +193,4 @@ const funDiagr = (persentVal, nameVal) => {
 	return myChart;
 };
 
-funDiagr(persentVal, title);
+//funDiagr(persentVal, title);
